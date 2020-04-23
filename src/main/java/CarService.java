@@ -1,6 +1,28 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class CarService {
 
-    public boolean analyzeCarByParams(Integer treadThickness, Integer fuelUsage, Integer carMillage) {
+    public List<CarDiagnosticResult> analyzeCars(List<CarDetails> carsDetails) {
+
+        List<CarDiagnosticResult> results = new ArrayList<>();
+        carsDetails.forEach(details -> {
+
+            boolean analyzeResult = analyzeSingle(details);
+            results.add(new CarDiagnosticResult(details.getId(), analyzeResult));
+        });
+        return results;
+    }
+
+    private boolean analyzeSingle(CarDetails carDetails) {
+
+        Integer treadThickness = carDetails.getTreadThickness();
+        Integer fuelUsage = carDetails.getFuelUsage();
+        Integer carMillage = carDetails.getCarMillage();
+        return analyzeCarByParams(treadThickness, fuelUsage, carMillage);
+    }
+
+    boolean analyzeCarByParams(Integer treadThickness, Integer fuelUsage, Integer carMillage) {
 
         boolean millageNull = null == carMillage;
         boolean fuelUsageNull = null == fuelUsage;

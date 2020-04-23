@@ -1,5 +1,9 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import java.util.stream.Stream;
 
 public class CarServiceTest {
 
@@ -18,36 +22,25 @@ public class CarServiceTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
     }
 
-    @Test
-    public void analyzeCarByParams_allValuesOk_resultTrue() {
+    @ParameterizedTest
+    @MethodSource("data")
+    public void analyzeCarByParams_withDataFromMethod_ResultFromData(Integer treadThickness, Integer fuelUsage, Integer carMillage, boolean expectedResult) {
 
         //given
-        Integer treadThickness = 3;
-        Integer fuelUsage = 5;
-        Integer carMillage = 15000;
         CarService service = new CarService();
 
         //when
         boolean result = service.analyzeCarByParams(treadThickness, fuelUsage, carMillage);
 
         //then
-        Assertions.assertTrue(result);
+        Assertions.assertEquals(expectedResult, result);
     }
 
-    @Test
-    public void analyzeCarByParams_carMillageNotOk_resultFalse() {
+    private static Stream<Arguments> data() {
 
-        //given
-        Integer treadThickness = 3;
-        Integer fuelUsage = 5;
-        Integer carMillage = 21000;
-        CarService service = new CarService();
-
-        //when
-        boolean result = service.analyzeCarByParams(treadThickness, fuelUsage, carMillage);
-
-        //then
-        Assertions.assertFalse(result);
+        return Stream.of(Arguments.of(3, 5, 1500, true),
+                Arguments.of(3, 5, 21000, false),
+                Arguments.of(2, 14, 0, false));
     }
 
     @Test
@@ -65,19 +58,5 @@ public class CarServiceTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
     }
 
-    @Test
-    public void analyzeCarByParams_valuesEqualToMinOrMax_resultFalse() {
 
-        //given
-        Integer treadThickness = 2;
-        Integer fuelUsage = 14;
-        Integer carMillage = 0;
-        CarService service = new CarService();
-
-        //when
-        boolean result = service.analyzeCarByParams(treadThickness, fuelUsage, carMillage);
-
-        //then
-        Assertions.assertFalse(result);
-    }
 }
