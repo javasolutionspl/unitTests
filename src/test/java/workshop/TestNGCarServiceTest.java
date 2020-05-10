@@ -1,6 +1,11 @@
+package workshop;
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import workshop.CarDetails;
+import workshop.CarDiagnosticResult;
+import workshop.CarService;
 import java.util.ArrayList;
 import java.util.List;
 

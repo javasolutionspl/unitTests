@@ -1,15 +1,18 @@
-public class CarDetails {
+package other;
 
-    private String id;
+public class OtherWorkshopCarDetailsDTO {
+
+    private Integer id;
     private Integer treadThickness;
     private Integer fuelUsage;
     private Integer carMillage;
+    private String brand;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -35,5 +38,13 @@ public class CarDetails {
 
     public void setCarMillage(Integer carMillage) {
         this.carMillage = carMillage;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 }

@@ -24,5 +24,9 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.apiguardian:apiguardian-api:1.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-launcher:1.6.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-suite-api:1.6.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.testng:testng:6.14.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.beust:jcommander:1.72" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.apache-extras.beanshell:bsh:2.0b6" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-all:1.10.19" level="project" />
   </component>
 </module>

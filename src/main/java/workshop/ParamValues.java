@@ -1,3 +1,5 @@
+package workshop;
+
 public enum ParamValues {
 
     CAR_MILLAGE(0, 20000),
